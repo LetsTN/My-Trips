@@ -1,4 +1,6 @@
+import LinkWrapper from 'components/LinkWrapper'
 import dynamic from 'next/dynamic'
+import { InfoOutline } from '@styled-icons/evaicons-outline/InfoOutline'
 
 // usa o dynamic imports para não incluir um módulo no lado do servidor (SSR)
 // fazendo isso nesse caso pq o mapa tem o window, que funciona só no browser
@@ -26,5 +28,12 @@ export default function Home() {
     }
   }
 
-  return <Map places={[place1, place2]} />
+  return (
+    <>
+      <LinkWrapper href="/about">
+        <InfoOutline size={32} aria-label="About" />
+      </LinkWrapper>
+      <Map places={[place1, place2]} />
+    </>
+  )
 }
